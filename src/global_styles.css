@@ -1,0 +1,106 @@
+/* Material Design Theme */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+
+/* Accessibility Improvements */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid #3f51b5;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (forced-colors: active) {
+  :root {
+    --primary-color: CanvasText;
+    --background-color: Canvas;
+    --border-color: CanvasText;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Loading States */
+.skeleton-loader {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.06) 25%,
+    rgba(0, 0, 0, 0.15) 37%,
+    rgba(0, 0, 0, 0.06) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* Toast Notifications */
+.hot-toast {
+  --hot-toast-background: #ffffff;
+  --hot-toast-color: #333333;
+  --hot-toast-border-radius: 8px;
+  --hot-toast-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hot-toast-success {
+  --hot-toast-color: #2e7d32;
+}
+
+.hot-toast-error {
+  --hot-toast-color: #d32f2f;
+}
+
+.hot-toast-loading {
+  --hot-toast-color: #1976d2;
+}
