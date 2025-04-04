@@ -7,6 +7,10 @@ export interface Formation {
   objectives: string[];
   imageUrl: string;
   type: 'presentiel' | 'elearning';
+  program: Array<{
+    title: string;
+    items: string[];
+  }>;
 }
 
 export interface NewsArticle {

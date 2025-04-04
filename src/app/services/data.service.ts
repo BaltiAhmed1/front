@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Formation, Instructor, NewsArticle } from '../models/types';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,17 @@ export class DataService {
       prerequisites: ['Connaissances de base en plasturgie'],
       objectives: ["Comprendre le processus d'injection", 'Maîtriser les paramètres machine', 'Optimiser la production'],
       imageUrl: 'https://picsum.photos/seed/injection/400/300',
-      type: 'presentiel'
+      type: 'presentiel',
+      program: [
+        {
+          title: 'Introduction',
+          items: ['Principes de base', 'Types de machines']
+        },
+        {
+          title: 'Paramètres',
+          items: ['Température', 'Pression', 'Vitesse']
+        }
+      ]
     },
     {
       id: '2',
@@ -25,7 +36,17 @@ export class DataService {
       prerequisites: ['Aucun prérequis'],
       objectives: ['Comprendre le principe de l\'extrusion', 'Connaître les différents types d\'extrudeuses'],
       imageUrl: 'https://picsum.photos/seed/extrusion/400/300',
-      type: 'elearning'
+      type: 'elearning',
+      program: [
+        {
+          title: 'Introduction à l\'extrusion',
+          items: ['Principes fondamentaux', 'Types d\'extrudeuses']
+        },
+        {
+          title: 'Procédés d\'extrusion',
+          items: ['Paramètres clés', 'Contrôle qualité']
+        }
+      ]
     },
     {
       id: '3',
@@ -35,7 +56,17 @@ export class DataService {
       prerequisites: ['Expérience en thermoformage'],
       objectives: ['Optimiser les cycles de production', 'Résoudre les problèmes courants'],
       imageUrl: 'https://picsum.photos/seed/thermo/400/300',
-      type: 'presentiel'
+      type: 'presentiel',
+      program: [
+        {
+          title: 'Techniques avancées',
+          items: ['Optimisation des cycles', 'Gestion des défauts']
+        },
+        {
+          title: 'Production industrielle',
+          items: ['Productivité', 'Maintenance']
+        }
+      ]
     }
   ];
 
@@ -118,26 +149,56 @@ export class DataService {
   ];
 
   getFormations(): Observable<Formation[]> {
-    return of(this.formations);
+    return of(this.formations).pipe(
+      catchError(error => {
+        console.error('Error fetching formations:', error);
+        return of([]);
+      })
+    );
   }
 
   getFormation(id: string): Observable<Formation | undefined> {
-    return of(this.formations.find(f => f.id === id));
+    return of(this.formations.find(f => f.id === id)).pipe(
+      catchError(error => {
+        console.error('Error fetching formation:', error);
+        return of(undefined);
+      })
+    );
   }
 
   getInstructors(): Observable<Instructor[]> {
-    return of(this.instructors);
+    return of(this.instructors).pipe(
+      catchError(error => {
+        console.error('Error fetching instructors:', error);
+        return of([]);
+      })
+    );
   }
 
   getInstructor(id: string): Observable<Instructor | undefined> {
-    return of(this.instructors.find(i => i.id === id));
+    return of(this.instructors.find(i => i.id === id)).pipe(
+      catchError(error => {
+        console.error('Error fetching instructor:', error);
+        return of(undefined);
+      })
+    );
   }
 
   getNews(): Observable<NewsArticle[]> {
-    return of(this.news);
+    return of(this.news).pipe(
+      catchError(error => {
+        console.error('Error fetching news:', error);
+        return of([]);
+      })
+    );
   }
 
   getNewsArticle(id: string): Observable<NewsArticle | undefined> {
-    return of(this.news.find(n => n.id === id));
+    return of(this.news.find(n => n.id === id)).pipe(
+      catchError(error => {
+        console.error('Error fetching news article:', error);
+        return of(undefined);
+      })
+    );
   }
 }

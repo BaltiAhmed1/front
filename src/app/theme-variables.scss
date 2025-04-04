@@ -1,0 +1,204 @@
+// _theme-variables.scss
+// Create a single source of truth for theme variables
+
+// Colors
+$colors: (
+  primary: (
+    light: #6b89f8,
+    main: #4a6cf7,
+    dark: #3451d1,
+    contrast: #ffffff
+  ),
+  secondary: (
+    light: #33ddff,
+    main: #00d4ff,
+    dark: #00a8cc,
+    contrast: #000000
+  ),
+  success: (
+    light: #4ade80,
+    main: #22c55e,
+    dark: #16a34a,
+    contrast: #ffffff
+  ),
+  warning: (
+    light: #fcd34d,
+    main: #f59e0b,
+    dark: #d97706,
+    contrast: #000000
+  ),
+  error: (
+    light: #f87171,
+    main: #ef4444,
+    dark: #dc2626,
+    contrast: #ffffff
+  ),
+  grey: (
+    50: #f9fafb,
+    100: #f3f4f6,
+    200: #e5e7eb,
+    300: #d1d5db,
+    400: #9ca3af,
+    500: #6b7280,
+    600: #4b5563,
+    700: #374151,
+    800: #1f2937,
+    900: #111827
+  )
+);
+
+// Light theme
+$light-theme: (
+  background: (
+    default: map-get(map-get($colors, grey), 50),
+    paper: #ffffff,
+    contrast: map-get(map-get($colors, grey), 900)
+  ),
+  text: (
+    primary: rgba(0, 0, 0, 0.87),
+    secondary: rgba(0, 0, 0, 0.6),
+    disabled: rgba(0, 0, 0, 0.38),
+    hint: rgba(0, 0, 0, 0.38)
+  ),
+  divider: rgba(0, 0, 0, 0.12)
+);
+
+// Dark theme
+$dark-theme: (
+  background: (
+    default: #121212,
+    paper: #1e1e1e,
+    contrast: map-get(map-get($colors, grey), 100)
+  ),
+  text: (
+    primary: rgba(255, 255, 255, 0.87),
+    secondary: rgba(255, 255, 255, 0.6),
+    disabled: rgba(255, 255, 255, 0.38),
+    hint: rgba(255, 255, 255, 0.38)
+  ),
+  divider: rgba(255, 255, 255, 0.12)
+);
+
+// Spacing
+$spacing: (
+  xs: 4px,
+  sm: 8px,
+  md: 16px,
+  lg: 24px,
+  xl: 32px,
+  xxl: 48px
+);
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px
+);
+
+// Typography
+$typography: (
+  font-family: ('Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif),
+  h1: (
+    font-size: 2.5rem,
+    font-weight: 700,
+    line-height: 1.2
+  ),
+  h2: (
+    font-size: 2rem,
+    font-weight: 700,
+    line-height: 1.2
+  ),
+  h3: (
+    font-size: 1.75rem,
+    font-weight: 600,
+    line-height: 1.3
+  ),
+  h4: (
+    font-size: 1.5rem,
+    font-weight: 600,
+    line-height: 1.3
+  ),
+  h5: (
+    font-size: 1.25rem,
+    font-weight: 600,
+    line-height: 1.4
+  ),
+  h6: (
+    font-size: 1rem,
+    font-weight: 600,
+    line-height: 1.4
+  ),
+  body1: (
+    font-size: 1rem,
+    font-weight: 400,
+    line-height: 1.5
+  ),
+  body2: (
+    font-size: 0.875rem,
+    font-weight: 400,
+    line-height: 1.5
+  ),
+  subtitle1: (
+    font-size: 1rem,
+    font-weight: 500,
+    line-height: 1.5
+  ),
+  subtitle2: (
+    font-size: 0.875rem,
+    font-weight: 500,
+    line-height: 1.5
+  ),
+  button: (
+    font-size: 0.875rem,
+    font-weight: 500,
+    line-height: 1.5,
+    text-transform: uppercase
+  ),
+  caption: (
+    font-size: 0.75rem,
+    font-weight: 400,
+    line-height: 1.5
+  ),
+  overline: (
+    font-size: 0.75rem,
+    font-weight: 600,
+    line-height: 1.5,
+    text-transform: uppercase
+  )
+);
+
+// Shadows
+$shadows: (
+  0: none,
+  1: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12),
+  2: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12),
+  3: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12),
+  4: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12),
+  6: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12),
+  8: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12),
+  12: 0 7px 8px -4px rgba(0,0,0,.2), 0 12px 17px 2px rgba(0,0,0,.14), 0 5px 22px 4px rgba(0,0,0,.12),
+  16: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12),
+  24: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12)
+);
+
+// Border radius
+$border-radius: (
+  none: 0,
+  sm: 4px,
+  md: 8px,
+  lg: 16px,
+  xl: 24px,
+  full: 9999px
+);
+
+// Z-index
+$z-index: (
+  drawer: 1200,
+  app-bar: 1100,
+  dialog: 1300,
+  snackbar: 1400,
+  tooltip: 1500
+);
